@@ -1,0 +1,13 @@
+.username-button {
+  font-family: "Helvetica", sans-serif;
+  text-align: center;
+  width: 250px;
+  border-radius: 10px;
+}
+
+.password-button {
+  font-family: "Helvetica", sans-serif;
+  text-align: center;
+  width: 250px;
+  border-radius: 10px;
+}

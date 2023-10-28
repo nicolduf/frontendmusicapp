@@ -1,0 +1,61 @@
+a {
+  color: black;
+  text-decoration: none;
+  font-size: 500%;
+}
+
+.navbar-container {
+  position: relative;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: white;
+  transition: width 0.3s;
+  z-index: 1;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Start off-screen to the right */
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  transition: right 0.5s;
+  z-index: 2;
+}
+
+.menu.open {
+  right: 0;
+}
+
+.menu-button {
+  cursor: pointer;
+  font-size: 20px;
+  /* Add other styles for the button as needed */
+}
+
+.menu-text {
+  cursor: pointer;
+  font-size: 60px;
+  /* Add other styles for the 'Close' text as needed */
+}
+
+.menu-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-links li {
+  padding: 10px 20px;
+  border-bottom: none;
+}
+
+.menu-links li:last-child {
+  border-bottom: none;
+}
