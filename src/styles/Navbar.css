@@ -46,6 +46,7 @@ a:hover {
 .menu-text {
   cursor: pointer;
   font-size: 60px;
+  right: 10px;
 }
 
 .menu-links ul {

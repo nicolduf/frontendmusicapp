@@ -8,7 +8,7 @@ function HomePage() {
 
     const fetchAllSongs = async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/songs`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/songs`);
             console.log(response)
 
             if (!response.ok) {

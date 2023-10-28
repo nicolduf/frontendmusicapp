@@ -4,6 +4,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import PrivateRoute from "./components/PrivateRoute";
+import SongDetailsPage from "./pages/SongDetailsPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<h1></h1>} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/songdetails" element={<SongDetailsPage />} />
         <Route
           path="/profile"
           element={
