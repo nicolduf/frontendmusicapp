@@ -1,13 +1,62 @@
 .username-button {
   font-family: "Helvetica", sans-serif;
+  font-size: 130%;
   text-align: center;
   width: 250px;
-  border-radius: 10px;
+  height: 30px;
+  border-radius: 20px;
+  border-color: black;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.username-button:focus {
+  border: 1px solid black;
 }
 
 .password-button {
   font-family: "Helvetica", sans-serif;
+  font-size: 130%;
   text-align: center;
   width: 250px;
-  border-radius: 10px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  outline: none;
 }
+
+.password-button:focus {
+  border: 1px solid black;
+}
+
+.login-button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 130%;
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr; 
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.input-container {
+  display: grid;
+  gap: 13px;
+  padding: 15px;
+}
+
+.form-container .login-button {
+  justify-self: center;
+  align-self: center;
+}
+
+

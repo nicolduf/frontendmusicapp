@@ -43,30 +43,32 @@ const LoginPage = () => {
   };
 
   return (
-    <>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-            required
-            className="username-button"
-            placeholder="Username"
-          />
-        </label>
-        <label>
-          <input
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-            type="password"
-            className="password-button"
-            placeholder="Password"
-          />
-        </label>
-        <button type="submit">Register</button>
+        <div className="input-container">
+          <label>
+            <input
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+              required
+              className="username-button"
+              placeholder="Username"
+            />
+          </label>
+          <label>
+            <input
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+              type="password"
+              className="password-button"
+              placeholder="Password"
+            />
+          </label>
+        </div>
+        <button className="login-button" type="submit">Login</button>
       </form>
-    </>
+    </div>
   );
 };
 

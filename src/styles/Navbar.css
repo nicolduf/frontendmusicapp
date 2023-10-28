@@ -4,6 +4,10 @@ a {
   font-size: 500%;
 }
 
+a:hover {
+  color: black;
+}
+
 .navbar-container {
   position: relative;
 }
@@ -36,14 +40,12 @@ a {
 
 .menu-button {
   cursor: pointer;
-  font-size: 20px;
-  /* Add other styles for the button as needed */
+  font-size: 500%;
 }
 
 .menu-text {
   cursor: pointer;
   font-size: 60px;
-  /* Add other styles for the 'Close' text as needed */
 }
 
 .menu-links ul {

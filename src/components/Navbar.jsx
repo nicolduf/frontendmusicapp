@@ -5,7 +5,6 @@ import "../styles/Navbar.css";
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Function to open and close the menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -18,8 +17,7 @@ function Navbar() {
       ></div>
       <div className={`menu ${isMenuOpen ? "open" : ""}`}>
         <div className="menu-header">
-          <div className="menu-text" onClick={toggleMenu}>
-          </div>
+          <div className="menu-text" onClick={toggleMenu}></div>
         </div>
         <div className="menu-links">
           <ul>
