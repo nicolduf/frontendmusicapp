@@ -21,6 +21,9 @@ function Navbar() {
             <li>
               <Link to="/profile">Profile</Link>
             </li>
+            <li>
+              <Link to="/artists">Artists</Link>
+            </li>
           </ul>
         </div>
       </div>
