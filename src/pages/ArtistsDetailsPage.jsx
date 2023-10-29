@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function SongDetailsPage() {
-  const { songId } = useParams();
-  const [song, setSong] = useState(null);
-  const apiUrl = `${import.meta.env.VITE_API_URL}/songs/${songId}`;
+function ArtistDetailsPage() {
+  const { artistId } = useParams();
+  const [artist, setArtist] = useState(null);
+  const apiUrl = `${import.meta.env.VITE_API_URL}/artists/${artistId}`;
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (songId) {
+    if (artistId) {
       fetch(apiUrl)
         .then((response) => {
           if (!response.ok) {
@@ -17,14 +17,14 @@ function SongDetailsPage() {
           }
           return response.json();
         })
-        .then((songData) => {
-          setSong(songData);
+        .then((artistData) => {
+          setArtist(artistData);
         })
         .catch((error) => {
-          console.error("Error fetching song data");
+          console.error("Error fetching artist data");
         });
     }
-  }, [songId]);
+  }, [artistId]);
 
   const addToFavorites = () => {
     fetch(`${import.meta.env.VITE_API_URL}/favorites`, {
@@ -32,7 +32,7 @@ function SongDetailsPage() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ songId: songId }),
+      body: JSON.stringify({ artistId: artistId }),
     })
       .then((response) => {
         if (!response.ok) {
@@ -40,26 +40,13 @@ function SongDetailsPage() {
         }
       })
       .catch((error) => {
-        console.error("Error adding song to favorites");
+        console.error("Error adding artist to favorites");
       });
   };
 
-  if (!song) {
+  if (!artist) {
     return <div>Loading...</div>;
   }
-
-  return (
-    <>
-      <img src={song.image} alt={song.title} className="songImage" />
-      <h1>{song.title}</h1>
-      <h1>{song.artist}</h1>
-      <p>{song.album}</p>
-      <p>{song.genre}</p>
-      <p>{song.label}</p>
-      <p>{song.released}</p>
-      <button onClick={addToFavorites}>Add to Favorites</button>
-    </>
-  );
 }
 
-export default SongDetailsPage;
+export default ArtistDetailsPage;

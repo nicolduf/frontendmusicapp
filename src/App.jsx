@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import PrivateRoute from "./components/PrivateRoute";
 import SongDetailsPage from "./pages/SongDetailsPage";
+import UserFavourites from "./pages/UserFavourites";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/songdetails" element={<SongDetailsPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/favourites" element={<UserFavourites />} />
         <Route
           path="/profile"
           element={
