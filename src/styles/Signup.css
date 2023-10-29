@@ -1,58 +1,57 @@
 .username-button-su {
-    font-family: "Helvetica", sans-serif;
-    font-size: 130%;
-    text-align: center;
-    width: 250px;
-    height: 30px;
-    border-radius: 20px;
-    border-color: black;
-    border: 1px solid transparent;
-    outline: none;
-  }
-  
-  .username-button-su:focus {
-    border: 1px solid black;
-  }
-  
-  .password-button-su {
-    font-family: "Helvetica", sans-serif;
-    font-size: 130%;
-    text-align: center;
-    width: 250px;
-    height: 30px;
-    border-radius: 20px;
-    border: 1px solid transparent;
-    outline: none;
-  }
-  
-  .password-button-su:focus {
-    border: 1px solid black;
-  }
-  
-  .login-button-su {
-    font-family: "Helvetica", sans-serif;
-    font-size: 130%;
-    text-align: center;
-    width: 100px;
-    height: 30px;
-    border-radius: 20px;
-    background-color: white;
-    cursor: pointer;
-  }
-  
-  .form-container-su {
-    display: grid;
-    grid-template-columns: 1fr; 
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .input-container-su {
-    display: grid;
-    gap: 13px;
-    padding: 15px;
-  }
-  
-  
-  
+  font-family: "Helvetica", sans-serif;
+  font-size: 130%;
+  text-align: center;
+  width: 250px;
+  height: 30px;
+  border-radius: 20px;
+  border-color: black;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.username-button-su:focus {
+  border: 1px solid black;
+}
+
+.password-button-su {
+  font-family: "Helvetica", sans-serif;
+  font-size: 130%;
+  text-align: center;
+  width: 250px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.password-button-su:focus {
+  border: 1px solid black;
+}
+
+.signup-button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 100%;
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 222px;
+}
+
+.form-container-su {
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.input-container-su {
+  gap: 13px;
+  padding: 15px;
+}

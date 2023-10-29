@@ -19,7 +19,7 @@ const LoginPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/auth/login`,
+        `${import.meta.env.VITE_API_URL}/login`,
         {
           method: "POST",
           headers: {
@@ -69,7 +69,7 @@ const LoginPage = () => {
         </div>
         <button className="login-button" type="submit">Login</button>
       </form>
-      <p>Create an acount <Link to="/signup">here</Link></p>
+      <p>Create an acount <Link className="create-account-link" to="/signup">here</Link></p>
     </div>
   );
 };

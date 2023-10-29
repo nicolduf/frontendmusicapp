@@ -5,7 +5,7 @@ a {
 }
 
 a:hover {
-  color: black;
+  color: limegreen;
 }
 
 .navbar-container {
@@ -26,9 +26,9 @@ a:hover {
 .menu {
   position: fixed;
   top: 0;
-  right: -300px;
-  width: 300px;
-  height: 100%;
+  right: -500px;
+  width: 25%;
+  height: 25%;
   background-color: white;
   transition: right 0.5s;
   z-index: 2;
@@ -47,6 +47,10 @@ a:hover {
   cursor: pointer;
   font-size: 60px;
   right: 10px;
+}
+
+.menu-text a:hover {
+  color: limegreen;
 }
 
 .menu-links ul {

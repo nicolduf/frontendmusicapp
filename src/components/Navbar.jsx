@@ -11,34 +11,32 @@ function Navbar() {
 
   return (
     <div className="navbar-container">
-      <div className={`overlay ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}></div>
+      <div
+        className={`overlay ${isMenuOpen ? "open" : ""}`}
+        onClick={toggleMenu}
+      ></div>
       <div className={`menu ${isMenuOpen ? "open" : ""}`}>
-        <div className="menu-header">
           <div className="menu-text" onClick={toggleMenu}></div>
-        </div>
         <div className="menu-links">
           <ul>
+            <li>
+              <Link to="/artists">Artists</Link>
+            </li>
             <li>
               <Link to="/profile">Profile</Link>
             </li>
             <li>
-              <Link to="/artists">Artists</Link>
+              <Link to="/login">Login</Link>
             </li>
           </ul>
         </div>
       </div>
-      <div className="navbar-buttons">
         <Link to="/">Home</Link>
         <div className="menu-button" onClick={toggleMenu}>
           Menu
-        </div>
       </div>
     </div>
   );
 }
 
 export default Navbar;
-
-
-
-
