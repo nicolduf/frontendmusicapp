@@ -21,7 +21,7 @@ function ArtistDetailsPage() {
           setArtist(artistData);
         })
         .catch((error) => {
-          console.error("Error fetching artist data");
+          console.error("Error fetching artist data:", error);
         });
     }
   }, [artistId]);
@@ -40,13 +40,24 @@ function ArtistDetailsPage() {
         }
       })
       .catch((error) => {
-        console.error("Error adding artist to favorites");
+        console.error("Error adding artist to favorites:", error);
       });
   };
 
   if (!artist) {
     return <div>Loading...</div>;
   }
+
+  return (
+    <>
+      <img src={artist.image} alt={artist.name} className="artist" />
+      <h1>{artist.name}</h1>
+      <p>{artist.realName}</p>
+      <p>{artist.location}</p>
+      <button onClick={addToFavorites}>Add to Favorites</button>
+    </>
+  );
 }
 
 export default ArtistDetailsPage;
+
