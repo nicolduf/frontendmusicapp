@@ -19,7 +19,7 @@ const LoginPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/login`,
+        `${import.meta.env.VITE_API_URL}/users/${_id}`,
         {
           method: "POST",
           headers: {

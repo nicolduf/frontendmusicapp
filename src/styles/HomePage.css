@@ -1,0 +1,20 @@
+.round-images {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  filter: grayscale(100%);
+  margin: 20px;
+  transition: filter 0.2s;
+}
+
+.round-images:hover {
+  filter: grayscale(0%);
+  border-radius: 0%;
+}
+
+.image-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 5%;
+}

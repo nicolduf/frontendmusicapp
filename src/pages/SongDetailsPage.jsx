@@ -3,13 +3,13 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function SongDetailsPage() {
-  const { songId } = useParams();
+  const { _id } = useParams();
   const [song, setSong] = useState(null);
-  const apiUrl = `${import.meta.env.VITE_API_URL}/api/songs/${songId}`;
+  const apiUrl = `${import.meta.env.VITE_API_URL}/api/songs/${_id}`;
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (songId) {
+    if (_id) {
       fetch(apiUrl)
         .then((response) => {
           if (!response.ok) {
@@ -24,25 +24,25 @@ function SongDetailsPage() {
           console.error("Error fetching song data");
         });
     }
-  }, [songId]);
+  }, [_id]);
 
-  const addToFavorites = () => {
-    fetch(`${import.meta.env.VITE_API_URL}/favorites`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ songId: songId }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-      })
-      .catch((error) => {
-        console.error("Error adding song to favorites");
-      });
-  };
+  // const addToFavorites = () => {
+  //   fetch(`${import.meta.env.VITE_API_URL}/favorites`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ songId: _id }),
+  //   })
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error adding song to favorites");
+  //     });
+  // };
 
   if (!song) {
     return <div>Loading...</div>;
