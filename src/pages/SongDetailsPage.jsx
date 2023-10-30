@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function SongDetailsPage() {
   const { songId } = useParams();
   const [song, setSong] = useState(null);
-  const apiUrl = `${import.meta.env.VITE_API_URL}/songs/${songId}`;
+  const apiUrl = `${import.meta.env.VITE_API_URL}/api/songs/${songId}`;
   const navigate = useNavigate();
 
   useEffect(() => {

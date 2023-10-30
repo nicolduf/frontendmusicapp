@@ -8,7 +8,7 @@ function HomePage() {
 
     const fetchAllSongs = async () => {
         try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/songs`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/songs`);
             console.log(response)
 
             if (!response.ok) {
@@ -29,13 +29,13 @@ function HomePage() {
     }, []);
 
     if (isLoading) {
-        return <div>Loading..."</div>
+        return <div>Loading...</div>
     }
 
     return (
         <div>
             {songs.map((song) => (
-                <div key={song._id} className="all-songs">
+                <div key={song.id} className="all-songs">
                     <img src={song.image} alt={song.title} />
                 </div>
             ))}

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function ArtistDetailsPage() {
   const { artistId } = useParams();
   const [artist, setArtist] = useState(null);
-  const apiUrl = `${import.meta.env.VITE_API_URL}/artists/${artistId}`;
+  const apiUrl = `${import.meta.env.VITE_API_URL}/artists/${artistsId}`;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -60,4 +60,3 @@ function ArtistDetailsPage() {
 }
 
 export default ArtistDetailsPage;
-

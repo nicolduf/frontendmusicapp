@@ -8,13 +8,14 @@ import SongDetailsPage from "./pages/SongDetailsPage";
 import UserFavourites from "./pages/UserFavourites";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage";
 import ArtistsPage from "./pages/ArtistsPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<h1></h1>} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/songdetails" element={<SongDetailsPage />} />
