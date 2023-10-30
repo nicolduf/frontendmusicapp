@@ -9,14 +9,19 @@ function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="navbar-container">
-      <div
-        className={`overlay ${isMenuOpen ? "open" : ""}`}
-        onClick={toggleMenu}
-      ></div>
+      <div className={`overlay ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}></div>
       <div className={`menu ${isMenuOpen ? "open" : ""}`}>
-          <div className="menu-text" onClick={toggleMenu}></div>
+        <div className="menu-text" onClick={toggleMenu}>
+          <div className="close-button" onClick={closeMenu}>
+            (X)
+          </div>
+        </div>
         <div className="menu-links">
           <ul>
             <li>
@@ -31,9 +36,9 @@ function Navbar() {
           </ul>
         </div>
       </div>
-        <Link to="/">Home</Link>
-        <div className="menu-button" onClick={toggleMenu}>
-          Menu
+      <Link to="/">Home</Link>
+      <div className="menu-button" onClick={toggleMenu}>
+        Menu
       </div>
     </div>
   );

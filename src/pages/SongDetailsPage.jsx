@@ -28,7 +28,7 @@ function SongDetailsPage() {
   }, [_id]);
 
   // const addToFavorites = () => {
-  //   fetch(`${import.meta.env.VITE_API_URL}/favorites`, {
+  //   fetch(`${import.meta.env.VITE_API_URL}/api/users/favouriteSongs`, {
   //     method: "POST",
   //     headers: {
   //       "Content-Type": "application/json",

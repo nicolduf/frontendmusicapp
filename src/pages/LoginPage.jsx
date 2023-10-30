@@ -19,7 +19,7 @@ const LoginPage = () => {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/users/${_id}`,
+        `${import.meta.env.VITE_API_URL}/auth/login`,
         {
           method: "POST",
           headers: {
@@ -35,7 +35,7 @@ const LoginPage = () => {
       if (response.status === 200) {
         const parsed = await response.json();
         handleLogin(parsed.token);
-        navigate("/profile");
+        navigate(`/profile/${_id}`);
       }
     } catch (error) {
       console.log(error);

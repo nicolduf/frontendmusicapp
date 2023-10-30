@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -22,6 +22,7 @@ function App() {
         <Route path="/favourites" element={<UserFavourites />} />
         <Route path="/artists" element={<ArtistsPage />} />
         <Route path="/artists/:_id" element={<ArtistDetailsPage />} />
+        <Route path="/profile/:_d" element={<ProfilePage />} />
         
         <Route
           path="/profile"

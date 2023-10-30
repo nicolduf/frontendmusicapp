@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 function ProfilePage() {
-  const { userId } = useParams();
-  const [user, setUser] = useState(null);
-  const apiUrl = `${import.meta.env.VITE_API_URL}/songs/${userId}`;
-  const navigate = useNavigate();
+  const [userDB, setUserDB] = useState(null);
+  const {user} = useContext(AuthContext)
+  console.log("Im here", user)
+  const apiUrl = `${import.meta.env.VITE_API_URL}/api/users/${user.userId}`;
 
   useEffect(() => {
-    if (userId) {
       fetch(apiUrl)
         .then((response) => {
           if (!response.ok) {
@@ -18,14 +18,29 @@ function ProfilePage() {
           return response.json();
         })
         .then((userData) => {
-          setSong(userData);
+          console.log(userData)
+          setUser(userId);
         })
         .catch((error) => {
-          console.error("Error fetching user data");
+          console.error(error);
         });
-    }
-  }, [userId]);
+  }, []);
+  console.log(user)
 
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+  
+
+  return (
+    <>
+      <img src={user.image} alt={user.name} className="userImage" />
+      <h1>
+        {user.name} {user.lastName}
+      </h1>
+      <p>{user.location}</p>
+    </>
+  );
 }
 
 export default ProfilePage;
