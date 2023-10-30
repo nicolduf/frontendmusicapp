@@ -28,7 +28,7 @@ a:hover {
   top: 0;
   right: -500px;
   width: 25%;
-  height: 60%;
+  height: 50%;
   background-color: white;
   transition: right 0.5s;
   z-index: 2;

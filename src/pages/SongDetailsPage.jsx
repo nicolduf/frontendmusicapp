@@ -19,6 +19,7 @@ function SongDetailsPage() {
         })
         .then((songData) => {
           setSong(songData);
+          console.log(songData)
         })
         .catch((error) => {
           console.error("Error fetching song data");
@@ -57,7 +58,7 @@ function SongDetailsPage() {
       <p>{song.genre}</p>
       <p>{song.label}</p>
       <p>{song.released}</p>
-      <button onClick={addToFavorites}>Add to Favorites</button>
+      {/* <button onClick={addToFavorites}>Add to Favorites</button> */}
     </>
   );
 }

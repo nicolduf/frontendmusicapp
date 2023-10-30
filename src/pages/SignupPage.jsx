@@ -4,6 +4,7 @@ import "../styles/Signup.css"
 const SignupPage = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   const handleSubmit = async event => {
     event.preventDefault()
@@ -20,15 +21,19 @@ const SignupPage = () => {
       if (response.status === 201) {
         const parsed = await response.json()
         console.log(parsed)
+      } else {
+        setError('Signup failed.')
       }
     } catch (error) {
       console.log(error)
+      setError('An error occurred. Please try again later.')
     }
   }
 
   return (
     <div className="form-container-su">
       <form onSubmit={handleSubmit}>
+        {error && <div className="error-message">{error}</div>}
         <div className="input-container-su">
           <label>
             <input

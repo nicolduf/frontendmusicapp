@@ -18,10 +18,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/songdetails" element={<SongDetailsPage />} />
+        <Route path="/songs/:_id" element={<SongDetailsPage />} />
         <Route path="/favourites" element={<UserFavourites />} />
         <Route path="/artists" element={<ArtistsPage />} />
-        <Route path="/artistdetails" element={<ArtistDetailsPage />} />
+        <Route path="/artists/:_id" element={<ArtistDetailsPage />} />
         
         <Route
           path="/profile"

@@ -3,13 +3,14 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function ArtistDetailsPage() {
-  const { artistId } = useParams();
+  const { _id } = useParams();
   const [artist, setArtist] = useState(null);
-  const apiUrl = `${import.meta.env.VITE_API_URL}/artists/${artistsId}`;
+  const apiUrl = `${import.meta.env.VITE_API_URL}/api/artists/${_id}`;
   const navigate = useNavigate();
+  
 
   useEffect(() => {
-    if (artistId) {
+    if (_id) {
       fetch(apiUrl)
         .then((response) => {
           if (!response.ok) {
@@ -24,25 +25,25 @@ function ArtistDetailsPage() {
           console.error("Error fetching artist data:", error);
         });
     }
-  }, [artistId]);
+  }, [_id]);
 
-  const addToFavorites = () => {
-    fetch(`${import.meta.env.VITE_API_URL}/favorites`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ artistId: artistId }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-      })
-      .catch((error) => {
-        console.error("Error adding artist to favorites:", error);
-      });
-  };
+  // const addToFavorites = () => {
+  //   fetch(`${import.meta.env.VITE_API_URL}/favorites`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ artistId: artistId }),
+  //   })
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error adding artist to favorites:", error);
+  //     });
+  // };
 
   if (!artist) {
     return <div>Loading...</div>;
@@ -54,7 +55,7 @@ function ArtistDetailsPage() {
       <h1>{artist.name}</h1>
       <p>{artist.realName}</p>
       <p>{artist.location}</p>
-      <button onClick={addToFavorites}>Add to Favorites</button>
+      {/* <button onClick={addToFavorites}>Add to Favorites</button> */}
     </>
   );
 }

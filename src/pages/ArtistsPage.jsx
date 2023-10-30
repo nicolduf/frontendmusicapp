@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/ArtistsPage.css"
 
 function ArtistsPage() {
   const [artists, setArtists] = useState([]);
@@ -6,7 +8,9 @@ function ArtistsPage() {
 
   const fetchAllArtists = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/artists`);
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/artists`
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -32,8 +36,10 @@ function ArtistsPage() {
   return (
     <div>
       {artists.map((artist) => (
-        <div key={artist.id} className="all-artists"> 
-          <img src={artist.image} alt={artist.name} />
+        <div key={artist.id} className="all-artists">
+          <Link to={`/artists/${artist._id}`}>
+            <h2 className="artist-name">{artist.name}</h2>
+          </Link>
         </div>
       ))}
     </div>

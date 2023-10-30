@@ -9,7 +9,6 @@ function HomePage() {
   const fetchAllSongs = async () => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/songs`);
-      console.log(response);
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -24,6 +23,20 @@ function HomePage() {
     }
   };
 
+  const sortSongsByNewestRelease = () => {
+    const sortedSongs = [...songs].sort(
+      (a, b) => new Date(b.released) - new Date(a.released)
+    );
+    setSongs(sortedSongs);
+  };
+
+  const sortSongsAlphabetically = () => {
+    const sortedSongs = [...songs].sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
+    setSongs(sortedSongs);
+  };
+
   useEffect(() => {
     fetchAllSongs();
   }, []);
@@ -34,10 +47,14 @@ function HomePage() {
 
   return (
     <div>
+      <div className="centered-container">
+        <button onClick={sortSongsByNewestRelease}>New Releases</button>
+        <button onClick={sortSongsAlphabetically}>A-Z</button>
+      </div>
       <div className="image-grid-container">
         {songs.map((song) => (
           <div key={song.id}>
-            <Link to={`/song/${song.id}`}>
+            <Link to={`/songs/${song._id}`}>
               <img src={song.image} alt={song.title} className="round-images" />
             </Link>
           </div>
