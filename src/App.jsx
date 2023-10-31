@@ -9,6 +9,9 @@ import UserFavourites from "./pages/UserFavourites";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage";
 import ArtistsPage from "./pages/ArtistsPage";
 import HomePage from "./pages/HomePage";
+import SongsPage from "./pages/SongsPage";
+import UploadSong from "./pages/UploadSong";
+
 
 function App() {
   return (
@@ -18,7 +21,9 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/songs" element={<SongsPage />} />
         <Route path="/songs/:_id" element={<SongDetailsPage />} />
+        <Route path="/uploadSong" element={<UploadSong />} />
         <Route path="/favourites" element={<UserFavourites />} />
         <Route path="/artists" element={<ArtistsPage />} />
         <Route path="/artists/:_id" element={<ArtistDetailsPage />} />

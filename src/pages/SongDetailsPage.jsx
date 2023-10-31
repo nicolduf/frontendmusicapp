@@ -27,6 +27,23 @@ function SongDetailsPage() {
     }
   }, [_id]);
 
+  const handleDelete = () => {
+    if (window.confirm("Are you sure you want to delete this song?")) {
+      fetch(apiUrl, {
+        method: "DELETE",
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          navigate("/");
+        })
+        .catch((error) => {
+          console.error("Error deleting song");
+        });
+    }
+  };
+
   // const addToFavorites = () => {
   //   fetch(`${import.meta.env.VITE_API_URL}/api/users/favouriteSongs`, {
   //     method: "POST",
@@ -59,6 +76,7 @@ function SongDetailsPage() {
       <p>{song.label}</p>
       <p>{song.released}</p>
       {/* <button onClick={addToFavorites}>Add to Favorites</button> */}
+      <button onClick={handleDelete}>Delete Song</button>
     </>
   );
 }

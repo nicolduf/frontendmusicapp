@@ -1,0 +1,12 @@
+.song-title {
+    font-size: 50px;
+    font-weight: 250;
+    margin: 5px;
+  }
+  
+  .songs-grid-container {
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }

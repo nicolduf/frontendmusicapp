@@ -55,3 +55,18 @@
   gap: 13px;
   padding: 15px;
 }
+
+.name-button{
+  font-family: "Helvetica", sans-serif;
+  font-size: 130%;
+  text-align: center;
+  width: 250px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.name-button:focus{
+  border: 1px solid black;
+}

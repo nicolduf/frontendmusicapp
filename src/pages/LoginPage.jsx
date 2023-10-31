@@ -8,6 +8,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const { handleLogin } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -35,7 +36,7 @@ const LoginPage = () => {
       if (response.status === 200) {
         const parsed = await response.json();
         handleLogin(parsed.token);
-        navigate(`/profile/${_id}`);
+        navigate(`/profile/${user.userId}`);
       }
     } catch (error) {
       console.log(error);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/ArtistsPage.css"
+import "../styles/ArtistsPage.css";
 
 function ArtistsPage() {
   const [artists, setArtists] = useState([]);
@@ -34,11 +34,11 @@ function ArtistsPage() {
   }
 
   return (
-    <div>
+    <div className="artist-grid-container">
       {artists.map((artist) => (
         <div key={artist.id} className="all-artists">
           <Link to={`/artists/${artist._id}`}>
-            <h2 className="artist-name">{artist.name}</h2>
+            <h2 className="artist-name">{artist.name} /</h2>
           </Link>
         </div>
       ))}

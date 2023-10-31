@@ -5,40 +5,47 @@ import { AuthContext } from "../contexts/AuthContext";
 
 function ProfilePage() {
   const [userDB, setUserDB] = useState(null);
-  const {user} = useContext(AuthContext)
-  console.log("Im here", user)
-  const apiUrl = `${import.meta.env.VITE_API_URL}/api/users/${user.userId}`;
+  const { user } = useContext(AuthContext);
+  const apiUrl = user ? `${import.meta.env.VITE_API_URL}/api/users/${user.userId}` : null;
 
   useEffect(() => {
-      fetch(apiUrl)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((userData) => {
-          console.log(userData)
-          setUser(userId);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-  }, []);
-  console.log(user)
+    if (!apiUrl) {
+      return;
+    }
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((userData) => {
+        console.log(userData);
+        setUserDB(userData);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [apiUrl]);
 
   if (!user) {
     return <div>Loading...</div>;
   }
-  
 
   return (
     <>
-      <img src={user.image} alt={user.name} className="userImage" />
-      <h1>
-        {user.name} {user.lastName}
-      </h1>
-      <p>{user.location}</p>
+      {userDB ? (
+        <>
+          <img src={userDB.image} alt={userDB.name} className="userImage" />
+          <h1>
+            {userDB.name} {userDB.lastName}
+          </h1>
+          <p>{userDB.location}</p>
+        </>
+      ) : (
+        <div>Loading...</div>
+      )}
     </>
   );
 }
