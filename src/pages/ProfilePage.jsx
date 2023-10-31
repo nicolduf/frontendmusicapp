@@ -5,8 +5,12 @@ import { AuthContext } from "../contexts/AuthContext";
 
 function ProfilePage() {
   const [userDB, setUserDB] = useState(null);
+  const [editing, setEditing] = useState(false);
+  const [editedUser, setEditedUser] = useState({});
+
   const { user } = useContext(AuthContext);
   const apiUrl = user ? `${import.meta.env.VITE_API_URL}/api/users/${user.userId}` : null;
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!apiUrl) {
@@ -29,6 +33,46 @@ function ProfilePage() {
       });
   }, [apiUrl]);
 
+  const handleEditClick = () => {
+    setEditedUser(userDB);
+    setEditing(true);
+  };
+
+  const handleSave = () => {
+    fetch(`${import.meta.env.VITE_API_URL}/api/users/${user.userId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editedUser),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((updatedUserData) => {
+        setUserDB(updatedUserData);
+        setEditing(false);
+      })
+      .catch((error) => {
+        console.error("Error updating user data", error);
+      });
+  };
+
+  const handleCancel = () => {
+    setEditing(false);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEditedUser({
+      ...editedUser,
+      [name]: value,
+    });
+  };
+
   if (!user) {
     return <div>Loading...</div>;
   }
@@ -37,11 +81,38 @@ function ProfilePage() {
     <>
       {userDB ? (
         <>
-          <img src={userDB.image} alt={userDB.username} className="userImage" />
-          <h1>
-            {userDB.username}
-          </h1>
-          <p>{userDB.location}</p>
+          {editing ? (
+            <div>
+              <h1>Edit Profile</h1>
+              <form>
+                <label>Username: </label>
+                <input
+                  type="text"
+                  name="username"
+                  value={editedUser.username}
+                  onChange={handleChange}
+                />
+                <br />
+                <label>Location: </label>
+                <input
+                  type="text"
+                  name="location"
+                  value={editedUser.location}
+                  onChange={handleChange}
+                />
+                <br />
+                <button onClick={handleSave}>Save</button>
+                <button onClick={handleCancel}>Cancel</button>
+              </form>
+            </div>
+          ) : (
+            <>
+              <img src={userDB.image} alt={userDB.username} className="userImage" />
+              <h1>{userDB.username}</h1>
+              <p>{userDB.location}</p>
+              <button onClick={handleEditClick}>Edit Profile</button>
+            </>
+          )}
         </>
       ) : (
         <div>Loading...</div>
