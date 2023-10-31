@@ -38,7 +38,8 @@ function ProfilePage() {
     setEditing(true);
   };
 
-  const handleSave = () => {
+  const handleSave = (event) => {
+    event.preventDefault()
     fetch(`${import.meta.env.VITE_API_URL}/api/users/${user.userId}`, {
       method: "PUT",
       headers: {
@@ -83,25 +84,37 @@ function ProfilePage() {
         <>
           {editing ? (
             <div>
-              <h1>Edit Profile</h1>
-              <form>
-                <label>Username: </label>
+              <form onSubmit={handleSave}> 
+                <label>Username
                 <input
                   type="text"
                   name="username"
                   value={editedUser.username}
                   onChange={handleChange}
+                  className="update-username"
                 />
+                </label>
                 <br />
-                <label>Location: </label>
+                <label>Location </label>
                 <input
                   type="text"
                   name="location"
                   value={editedUser.location}
                   onChange={handleChange}
+                  className="update-location"
                 />
                 <br />
-                <button onClick={handleSave}>Save</button>
+                <label>Profile Picture </label>
+                <input
+                  type="text"
+                  name="location"
+                  value={editedUser.image}
+                  onChange={handleChange}
+                  className="update-image"
+                />
+                <br />
+                <br />
+                <button>Save</button>
                 <button onClick={handleCancel}>Cancel</button>
               </form>
             </div>

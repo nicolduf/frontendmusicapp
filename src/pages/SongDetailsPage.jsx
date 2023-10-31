@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import '../styles/SongsDetails.css'
 
 function SongDetailsPage() {
   const { _id } = useParams();
@@ -77,8 +78,8 @@ function SongDetailsPage() {
       <p>{song.genre}</p>
       <p>{song.label}</p>
       <p>{song.released}</p>
-      <button onClick={handleDelete}>Delete Song</button>
-      <button onClick={handleAddToFavorites}>Add to Favorites</button>
+      <button className="delete-button" onClick={handleDelete}>Delete Song</button>
+      <button className="favourites-button" onClick={handleAddToFavorites}>Add to Favorites</button>
     </>
   );
 }

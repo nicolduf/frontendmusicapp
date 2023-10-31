@@ -5,7 +5,6 @@ import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import PrivateRoute from "./components/PrivateRoute";
 import SongDetailsPage from "./pages/SongDetailsPage";
-import UserFavourites from "./pages/UserFavourites";
 import ArtistDetailsPage from "./pages/ArtistDetailsPage";
 import ArtistsPage from "./pages/ArtistsPage";
 import HomePage from "./pages/HomePage";
@@ -24,7 +23,6 @@ function App() {
         <Route path="/songs" element={<SongsPage />} />
         <Route path="/songs/:_id" element={<SongDetailsPage />} />
         <Route path="/uploadSong" element={<UploadSong />} />
-        <Route path="/favourites" element={<UserFavourites />} />
         <Route path="/artists" element={<ArtistsPage />} />
         <Route path="/artists/:_id" element={<ArtistDetailsPage />} />
         <Route path="/profile/:_d" element={<ProfilePage />} />

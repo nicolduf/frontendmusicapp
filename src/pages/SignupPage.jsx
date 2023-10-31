@@ -58,15 +58,6 @@ const SignupPage = () => {
               placeholder="Password"
             />
           </label>
-          <label>
-            <input
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-              required
-              className="name-button"
-              placeholder="First Name"
-            />
-          </label>
         </div>
         <button className="signup-button" type="submit">
           Sign up

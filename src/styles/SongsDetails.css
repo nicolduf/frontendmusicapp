@@ -1,0 +1,23 @@
+.delete-button {
+    font-family: "Helvetica", sans-serif;
+    font-size: 100%;
+    text-align: center;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.favourites-button {
+    font-family: "Helvetica", sans-serif;
+    font-size: 100%;
+    text-align: center;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    margin-left: 20px;
+}

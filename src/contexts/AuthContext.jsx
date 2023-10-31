@@ -9,7 +9,6 @@ const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null)
 
   const handleLogin = async currentToken => {
-    setIsLoading(true)
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/verify`, {
         headers: {
@@ -25,6 +24,8 @@ const AuthContextProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error)
+      setIsLoading(false)
+      setIsAuthenticated(false)
     }
     setIsLoading(false)
   }
@@ -57,8 +58,20 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
+  const removeToken = () => {
+    localStorage.removeItem("authToken");
+    setToken(null);
+  };
+
+  const logOutUser = () => {
+    removeToken();
+    const tokenFromStorage = window.localStorage.getItem('authToken')
+    handleLogin(tokenFromStorage);
+    console.log("hooooo")
+  };
+
   return (
-    <AuthContext.Provider value={{user, fetchWithToken, isLoading, isAuthenticated, handleLogin }}>
+    <AuthContext.Provider value={{user, fetchWithToken, isLoading, isAuthenticated, handleLogin, logOutUser }}>
       {children}
     </AuthContext.Provider>
   )
