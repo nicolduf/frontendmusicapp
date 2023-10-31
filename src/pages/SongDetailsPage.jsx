@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 function SongDetailsPage() {
   const { _id } = useParams();
   const [song, setSong] = useState(null);
+  const { user } = useContext(AuthContext);
   const apiUrl = `${import.meta.env.VITE_API_URL}/api/songs/${_id}`;
   const navigate = useNavigate();
 
@@ -19,7 +21,7 @@ function SongDetailsPage() {
         })
         .then((songData) => {
           setSong(songData);
-          console.log(songData)
+          console.log(songData);
         })
         .catch((error) => {
           console.error("Error fetching song data");
@@ -39,28 +41,28 @@ function SongDetailsPage() {
           navigate("/");
         })
         .catch((error) => {
-          console.error("Error deleting song");
+          console.error("Error deleting song", error);
         });
     }
   };
 
-  // const addToFavorites = () => {
-  //   fetch(`${import.meta.env.VITE_API_URL}/api/users/favouriteSongs`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ songId: _id }),
-  //   })
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error adding song to favorites");
-  //     });
-  // };
+  const handleAddToFavorites = () => {
+    const songId = song._id; 
+    const userId = user.userId;
+    console.log(user)
+
+    fetch(`${import.meta.env.VITE_API_URL}/api/users/add-to-favourites/${userId}/${songId}`, {
+      method: "POST",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+      })
+      .catch((error) => {
+        console.error("Error adding song to favorites", error);
+      });
+  };
 
   if (!song) {
     return <div>Loading...</div>;
@@ -75,8 +77,8 @@ function SongDetailsPage() {
       <p>{song.genre}</p>
       <p>{song.label}</p>
       <p>{song.released}</p>
-      {/* <button onClick={addToFavorites}>Add to Favorites</button> */}
       <button onClick={handleDelete}>Delete Song</button>
+      <button onClick={handleAddToFavorites}>Add to Favorites</button>
     </>
   );
 }

@@ -37,9 +37,9 @@ function ProfilePage() {
     <>
       {userDB ? (
         <>
-          <img src={userDB.image} alt={userDB.name} className="userImage" />
+          <img src={userDB.image} alt={userDB.username} className="userImage" />
           <h1>
-            {userDB.name} {userDB.lastName}
+            {userDB.username}
           </h1>
           <p>{userDB.location}</p>
         </>
