@@ -66,9 +66,9 @@ function HomePage() {
   return (
     <div>
       <div className="centered-container">
-        <button onClick={sortSongsByNewestRelease}>New Releases</button>
-        <button onClick={sortSongsAlphabetically}>A-Z</button>
-        <select onChange={(e) => setSelectedGenre(e.target.value)} value={selectedGenre}>
+        <button className="new-releases" onClick={sortSongsByNewestRelease}>New Releases</button>
+        <button className="a-z" onClick={sortSongsAlphabetically}>A-Z</button>
+        <select className="genres" onChange={(e) => setSelectedGenre(e.target.value)} value={selectedGenre}>
           {allGenres.map((genre) => (
             <option key={genre} value={genre}>
               {genre}
@@ -82,6 +82,7 @@ function HomePage() {
             <Link to={`/songs/${song._id}`}>
               <img src={song.image} alt={song.title} className="round-images" />
             </Link>
+            {/* <p className="songTitles">{song.artist} - {song.title}</p> */}
           </div>
         ))}
       </div>

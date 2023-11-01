@@ -138,23 +138,25 @@ function ProfilePage() {
                 <p className="username-font">{userDB.username}</p>
                 <p className="location-font">{userDB.location}</p>
                 <button className="edit-button" onClick={handleEditClick}>
-                Edit Profile
-              </button>
+                  Edit Profile
+                </button>
               </div>
               <div className="favourites-section">
                 <p className="songs-font">{userDB.username}'s Songs</p>
-                <ul>
-                  {userDB.favouriteSongs &&
-                    userDB.favouriteSongs.map((song, index) => (
-                      <li key={index}>
-                        <img
-                          src={song.image}
-                          alt={song.title}
-                          className="songImage-profile"
-                        />
-                      </li>
-                    ))}
-                </ul>
+                <div className="favourite-songs-container">
+                  <ul>
+                    {userDB.favouriteSongs &&
+                      userDB.favouriteSongs.map((song, index) => (
+                        <li key={index}>
+                          <img
+                            src={song.image}
+                            alt={song.title}
+                            className="songImage-profile"
+                          />
+                        </li>
+                      ))}
+                  </ul>
+                </div>
                 <p className="artists-font">{userDB.username}'s Artists</p>
                 <ul>
                   {userDB.favouriteArtists &&
