@@ -1,23 +1,54 @@
 .delete-button {
-    font-family: "Helvetica", sans-serif;
-    font-size: 100%;
-    text-align: center;
-    width: 150px;
-    height: 30px;
-    border-radius: 20px;
-    background-color: white;
-    cursor: pointer;
-    margin-left: 20px;
+  font-family: "Helvetica", sans-serif;
+  font-size: 100%;
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 40px;
 }
 
 .favourites-button {
-    font-family: "Helvetica", sans-serif;
-    font-size: 100%;
-    text-align: center;
-    width: 150px;
-    height: 30px;
-    border-radius: 20px;
-    background-color: white;
-    cursor: pointer;
-    margin-left: 20px;
+  font-family: "Helvetica", sans-serif;
+  font-size: 100%;
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 40px;
+}
+
+.song-details-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-top: 170px;
+}
+
+.image-container {
+  flex: 1;
+  margin-right: 20px;
+  margin-left: 50px;
+}
+
+.info-container {
+  flex: 1;
+}
+
+.songImage {
+  width: 400px;
+  height: 400px;
+}
+
+.songTitle {
+  font-size: 50px;
+  font-weight: 250;
+  margin-bottom: 60px;
 }
