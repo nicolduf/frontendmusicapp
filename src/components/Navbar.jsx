@@ -41,7 +41,7 @@ function Navbar() {
               <Link to="/login">Login</Link>
             </li>
             <li>
-              <button type="button" onClick={ async()=>{await logOutUser();navigate("/login")}}>Logout</button>
+              <button className="logout-button" type="button" onClick={ async()=>{await logOutUser();navigate("/login")}}>Logout</button>
             </li>
           </ul>
         </div>
