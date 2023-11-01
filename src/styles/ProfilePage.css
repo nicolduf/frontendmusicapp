@@ -1,0 +1,57 @@
+.profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 170px;
+}
+
+.profile-section {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.favourites-section {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.favourites-section ul {
+  list-style: none;
+}
+
+.userImage-profile {
+  max-width: 300px;
+  border-radius: 50%;
+}
+
+.songImage-profile,
+.artistImage-profile {
+  max-width: 100px;
+  border-radius: 50%;
+}
+
+.edit-button {
+  font-size: 100%;
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.username-font {
+  font-size: 70px;
+  font-weight: 250;
+  margin-bottom: 10px;
+}
+
+.songs-font {
+
+}
+ 

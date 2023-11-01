@@ -2,14 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import "../styles/ProfilePage.css";
 
 function ProfilePage() {
   const [userDB, setUserDB] = useState(null);
   const [editing, setEditing] = useState(false);
-  const [editedUser, setEditedUser] = useState({});
+  const [editedUser, setEditedUser] = useState({
+    image: "",
+    location: "",
+    username: "",
+  });
 
   const { user } = useContext(AuthContext);
-  const apiUrl = user ? `${import.meta.env.VITE_API_URL}/api/users/${user.userId}` : null;
+  const apiUrl = user
+    ? `${import.meta.env.VITE_API_URL}/api/users/${user.userId}`
+    : null;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,8 +32,12 @@ function ProfilePage() {
         return response.json();
       })
       .then((userData) => {
-        console.log(userData);
         setUserDB(userData);
+        setEditedUser({
+          image: userData.image,
+          location: userData.location,
+          username: userData.username,
+        });
       })
       .catch((error) => {
         console.error(error);
@@ -34,12 +45,11 @@ function ProfilePage() {
   }, [apiUrl]);
 
   const handleEditClick = () => {
-    setEditedUser(userDB);
     setEditing(true);
   };
 
   const handleSave = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     fetch(`${import.meta.env.VITE_API_URL}/api/users/${user.userId}`, {
       method: "PUT",
       headers: {
@@ -83,9 +93,9 @@ function ProfilePage() {
       {userDB ? (
         <>
           {editing ? (
-            <div>
-              <form onSubmit={handleSave}> 
-                <label>Username
+            <div className="profile-page">
+              <form onSubmit={handleSave}>
+                <label>Username</label>
                 <input
                   type="text"
                   name="username"
@@ -93,9 +103,8 @@ function ProfilePage() {
                   onChange={handleChange}
                   className="update-username"
                 />
-                </label>
                 <br />
-                <label>Location </label>
+                <label>Location</label>
                 <input
                   type="text"
                   name="location"
@@ -104,10 +113,10 @@ function ProfilePage() {
                   className="update-location"
                 />
                 <br />
-                <label>Profile Picture </label>
+                <label>Profile Picture</label>
                 <input
                   type="text"
-                  name="location"
+                  name="image"
                   value={editedUser.image}
                   onChange={handleChange}
                   className="update-image"
@@ -119,12 +128,48 @@ function ProfilePage() {
               </form>
             </div>
           ) : (
-            <>
-              <img src={userDB.image} alt={userDB.username} className="userImage" />
-              <h1>{userDB.username}</h1>
-              <p>{userDB.location}</p>
-              <button onClick={handleEditClick}>Edit Profile</button>
-            </>
+            <div className="profile-page">
+              <div className="profile-section">
+                <img
+                  src={userDB.image}
+                  alt={userDB.username}
+                  className="userImage-profile"
+                />
+                <p className="username-font">{userDB.username}</p>
+                <p className="location-font">{userDB.location}</p>
+                <button className="edit-button" onClick={handleEditClick}>
+                Edit Profile
+              </button>
+              </div>
+              <div className="favourites-section">
+                <p className="songs-font">{userDB.username}'s Songs</p>
+                <ul>
+                  {userDB.favouriteSongs &&
+                    userDB.favouriteSongs.map((song, index) => (
+                      <li key={index}>
+                        <img
+                          src={song.image}
+                          alt={song.title}
+                          className="songImage-profile"
+                        />
+                      </li>
+                    ))}
+                </ul>
+                <p className="artists-font">{userDB.username}'s Artists</p>
+                <ul>
+                  {userDB.favouriteArtists &&
+                    userDB.favouriteArtists.map((artist, index) => (
+                      <li key={index}>
+                        <img
+                          src={artist.image}
+                          alt={artist.name}
+                          className="artistImage-profile"
+                        />
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            </div>
           )}
         </>
       ) : (

@@ -6,7 +6,7 @@ function HomePage() {
   const [songs, setSongs] = useState([]);
   const [originalSongs, setOriginalSongs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedGenre, setSelectedGenre] = useState("All"); // Initialize with "All" option
+  const [selectedGenre, setSelectedGenre] = useState("All");
 
   const fetchAllSongs = async () => {
     try {
@@ -18,7 +18,7 @@ function HomePage() {
 
       const songsData = await response.json();
       setSongs(songsData);
-      setOriginalSongs(songsData); // Save a copy of all songs
+      setOriginalSongs(songsData);
       setIsLoading(false);
     } catch (error) {
       console.error("There's been an error fetching songs", error);
@@ -40,17 +40,15 @@ function HomePage() {
     setSongs(sortedSongs);
   };
 
-  // Function to filter songs by genre
   const filterSongsByGenre = (genre) => {
     if (genre === "All") {
-      setSongs(originalSongs); // Restore all songs
+      setSongs(originalSongs);
     } else {
       const filteredSongs = originalSongs.filter((song) => song.genre === genre);
       setSongs(filteredSongs);
     }
   };
 
-  // Update songs when the selected genre changes
   useEffect(() => {
     filterSongsByGenre(selectedGenre);
   }, [selectedGenre]);
@@ -63,7 +61,6 @@ function HomePage() {
     return <div>Loading...</div>;
   }
 
-  // Create an array of unique genres from the songs
   const allGenres = ["All", ...new Set(songs.map((song) => song.genre))];
 
   return (
