@@ -33,7 +33,8 @@ function SongsPage() {
 
   return (
     <div className="songs-grid-container">
-        <Link to="/uploadSong">Upload Your Release</Link>
+                <Link to="/uploadSong">Upload Your Release</Link>
+
         {songs.map((song) => (
             <div key={song._id} className="all-songs">
                 <Link to={`/songs/${song._id}`}>

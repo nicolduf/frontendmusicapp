@@ -1,4 +1,4 @@
-.username-button {
+.login-page-username {
   font-family: "Helvetica", sans-serif;
   font-size: 130%;
   text-align: center;
@@ -10,11 +10,11 @@
   outline: none;
 }
 
-.username-button:focus {
+.login-page-username:focus {
   border: 1px solid black;
 }
 
-.password-button {
+.login-page-password {
   font-family: "Helvetica", sans-serif;
   font-size: 130%;
   text-align: center;
@@ -25,11 +25,11 @@
   outline: none;
 }
 
-.password-button:focus {
+.login-page-password:focus {
   border: 1px solid black;
 }
 
-.login-button {
+.login-page-button {
   font-family: "Helvetica", sans-serif;
   font-size: 100%;
   text-align: center;
@@ -42,8 +42,8 @@
   margin-bottom: 20px;
 }
 
-.form-container {
-   display: flex;
+.login-page-container {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -51,13 +51,11 @@
   margin-bottom: 20px;
 }
 
-.input-container {
+.login-page-input-container {
   gap: 13px;
   padding: 15px;
 }
 
-.create-account-link {
+.login-page-create-account-link {
   font-size: 150%;
 }
-
-

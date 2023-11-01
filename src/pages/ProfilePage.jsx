@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import "../styles/ProfilePage.css";
+import { Link } from "react-router-dom";
 
 function ProfilePage() {
   const [userDB, setUserDB] = useState(null);
@@ -123,8 +124,10 @@ function ProfilePage() {
                 />
                 <br />
                 <br />
-                <button>Save</button>
-                <button onClick={handleCancel}>Cancel</button>
+                <div className="update-button-container">
+                  <button>Save</button>
+                  <button onClick={handleCancel}>Cancel</button>
+                </div>
               </form>
             </div>
           ) : (
@@ -144,32 +147,34 @@ function ProfilePage() {
               <div className="favourites-section">
                 <p className="songs-font">{userDB.username}'s Songs</p>
                 <div className="favourite-songs-container">
-                  <ul>
-                    {userDB.favouriteSongs &&
-                      userDB.favouriteSongs.map((song, index) => (
-                        <li key={index}>
+                  {userDB.favouriteSongs &&
+                    userDB.favouriteSongs.map((song, index) => (
+                      <div key={index}>
+                        <Link to={`/songs/${song._id}`}>
                           <img
                             src={song.image}
                             alt={song.title}
                             className="songImage-profile"
                           />
-                        </li>
-                      ))}
-                  </ul>
+                        </Link>
+                      </div>
+                    ))}
                 </div>
                 <p className="artists-font">{userDB.username}'s Artists</p>
-                <ul>
+                <div className="favourites-artists-container">
                   {userDB.favouriteArtists &&
                     userDB.favouriteArtists.map((artist, index) => (
-                      <li key={index}>
-                        <img
-                          src={artist.image}
-                          alt={artist.name}
-                          className="artistImage-profile"
-                        />
-                      </li>
+                      <div key={index}>
+                        <Link to={`/artists/${artist._id}`}>
+                          <img
+                            src={artist.image}
+                            alt={artist.name}
+                            className="artistImage-profile"
+                          />
+                        </Link>
+                      </div>
                     ))}
-                </ul>
+                </div>
               </div>
             </div>
           )}
@@ -182,3 +187,4 @@ function ProfilePage() {
 }
 
 export default ProfilePage;
+

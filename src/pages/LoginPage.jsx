@@ -45,15 +45,15 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="login-page-container">
       <form onSubmit={handleSubmit}>
-        <div className="input-container">
+        <div className="login-page-input-container">
           <label>
             <input
               value={username}
               onChange={(event) => setUsername(event.target.value)}
               required
-              className="username-button"
+              className="login-page-username"
               placeholder="Username"
             />
           </label>
@@ -63,14 +63,14 @@ const LoginPage = () => {
               onChange={(event) => setPassword(event.target.value)}
               required
               type="password"
-              className="password-button"
+              className="login-page-password"
               placeholder="Password"
             />
           </label>
         </div>
-        <button className="login-button" type="submit">Login</button>
+        <button className="login-page-button" type="submit">Login</button>
       </form>
-      <p>Create an acount <Link className="create-account-link" to="/signup">here</Link></p>
+      <p>Create an account <Link className="login-page-create-account-link" to="/signup">here</Link></p>
     </div>
   );
 };

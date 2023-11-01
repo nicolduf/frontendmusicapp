@@ -16,10 +16,7 @@
   flex: 1;
   text-align: center;
   padding: 20px;
-}
-
-.favourites-section ul {
-  list-style: none;
+  margin-top: -120px;
 }
 
 .favourite-songs-container {
@@ -27,6 +24,26 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+}
+
+.artists-favourites-section {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.favourites-artists-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.songImage-profile {
+  max-width: 100px;
+  border-radius: 50%;
 }
 
 .userImage-profile {
@@ -56,4 +73,41 @@
   font-size: 70px;
   font-weight: 250;
   margin-bottom: 10px;
+}
+
+.update-username,
+.update-location,
+.update-image {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.update-username:focus,
+.update-location:focus,
+.update-image:focus {
+  outline: none;
+  border: 2px solid black;
+}
+
+.update-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.update-button-container button {
+  width: 45%;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.update-button-container button:hover {
+  background-color: white
 }
