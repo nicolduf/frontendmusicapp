@@ -49,12 +49,12 @@ a:hover {
 .menu-button {
   cursor: pointer;
   font-size: 500%;
+  margin-left: 980px;
 }
 
 .menu-text {
   cursor: pointer;
   font-size: 60px;
-  right: 10px;
 }
 
 .menu-text a:hover {
