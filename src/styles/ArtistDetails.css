@@ -1,0 +1,39 @@
+.artist-details-container {
+  display: flex;
+  align-items: center;
+  margin-top: 170px;
+}
+
+.artist-image-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.artist-details {
+  flex: 1;
+  padding: 20px;
+}
+
+.artistImage {
+  width: 700px;
+  height: 500px;
+}
+
+.artist-font {
+  font-size: 50px;
+  font-weight: 250;
+  margin-bottom: 60px;
+}
+
+.artist-favourites-button {
+    font-family: "Helvetica", sans-serif;
+    font-size: 100%;
+    text-align: center;
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 40px;
+}
