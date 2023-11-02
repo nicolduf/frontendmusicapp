@@ -11,16 +11,42 @@ function UploadSong() {
   const [image, setImage] = useState("");
   const [error, setError] = useState("");
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
-    setTitle("");
-    setArtist("");
-    setAlbum("");
-    setGenre("");
-    setLabel("");
-    setReleased("");
-    setImage("");
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/songs`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          artist,
+          album,
+          genre,
+          label,
+          released,
+          image,
+        }),
+      });
+
+      if (response.status === 201) {
+        setTitle("");
+        setArtist("");
+        setAlbum("");
+        setGenre("");
+        setLabel("");
+        setReleased("");
+        setImage("");
+      } else {
+        const data = await response.json();
+        setError(data.error);
+      }
+    } catch (error) {
+      console.error(error);
+      setError("An error occurred while uploading the song.");
+    }
   };
 
   return (

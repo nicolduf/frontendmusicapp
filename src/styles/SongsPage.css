@@ -1,12 +1,22 @@
 .song-title {
-    font-size: 50px;
-    font-weight: 250;
-    margin: 5px;
-  }
-  
-  .songs-grid-container {
-    margin-top: 170px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
+  font-size: 50px;
+  font-weight: 250;
+  margin: 5px;
+}
+
+.songs-grid-container {
+  margin-top: 170px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.upload-release-text {
+  font-size: 60px;
+}
+
+.flex-songs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
