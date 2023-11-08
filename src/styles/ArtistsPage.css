@@ -1,7 +1,11 @@
 .artist-name {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 250;
   margin: 5px;
+}
+
+.artist-name:hover {
+  text-decoration: line-through;
 }
 
 .artist-grid-container {
@@ -9,4 +13,5 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: space-evenly;
 }

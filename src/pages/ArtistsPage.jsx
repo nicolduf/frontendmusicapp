@@ -38,7 +38,7 @@ function ArtistsPage() {
       {artists.map((artist) => (
         <div key={artist.id} className="all-artists">
           <Link to={`/artists/${artist._id}`}>
-            <h2 className="artist-name">{artist.name} /</h2>
+            <h2 className="artist-name">{artist.name} </h2>
           </Link>
         </div>
       ))}
