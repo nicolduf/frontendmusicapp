@@ -1,7 +1,11 @@
 .song-title {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 250;
   margin: 5px;
+}
+
+.song-title:hover {
+  text-decoration: line-through;
 }
 
 .songs-grid-container {
@@ -12,11 +16,12 @@
 }
 
 .upload-release-text {
-  font-size: 60px;
+  font-size: 57px;
 }
 
 .flex-songs {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: space-evenly;
 }

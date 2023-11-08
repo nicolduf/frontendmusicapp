@@ -41,7 +41,7 @@ function SongsPage() {
           <div key={song._id} className="all-songs">
             <Link to={`/songs/${song._id}`}>
               <h2 className="song-title">
-                {song.artist} - {song.title} /
+                {song.artist} - {song.title}
               </h2>
             </Link>
           </div>
