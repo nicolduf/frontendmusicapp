@@ -39,16 +39,18 @@ function SongsPage() {
       <div className="flex-songs">
         {songs.map((song) => (
           <div key={song._id} className="all-songs">
-            <Link to={`/songs/${song._id}`} className="song-link">
-              <img
-                src={song.image}
-                alt={`${song.artist} - ${song.title}`}
-                className="song-image"
-              />
-              <h2 className="song-title">
-                {song.artist} - {song.title}
-              </h2>
-            </Link>
+            <div className="song-container">
+              <Link to={`/songs/${song._id}`} className="song-link">
+                <img
+                  src={song.imageUrl}
+                  alt={`${song.artist} - ${song.title}`}
+                  className="song-image"
+                />
+                <h2 className="song-title">
+                  {song.artist} - {song.title}
+                </h2>
+              </Link>
+            </div>
           </div>
         ))}
       </div>
