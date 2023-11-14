@@ -1,28 +1,15 @@
 .artist-details-container {
-  display: flex;
-  align-items: center;
   margin-top: 170px;
 }
 
-.artist-image-container {
-  flex: 1;
-  padding: 20px;
+.artist-details p {
+  margin-top: 0;
 }
 
-.artist-details {
-  flex: 1;
-  padding: 20px;
-}
-
-.artistImage {
-  width: 50%;
-  height: 50%;
-}
-
-.artist-font {
-  font-size: 50px;
-  font-weight: 250;
-  margin-bottom: 60px;
+.artist-image {
+  width: 99%;
+  margin-bottom: 0;
+  display: block;
 }
 
 .artist-favourites-button {
@@ -34,6 +21,28 @@
     border-radius: 20px;
     background-color: white;
     cursor: pointer;
-    margin-left: 20px;
-    margin-top: 40px;
+    margin-top: 100px;
+    margin-right: 20px;
+}
+
+.artist {
+  font-size: 500%;
+  margin-bottom: 40px;
+  margin-right: 10px;
+  text-align: right;
+
+}
+
+.artist-realName {
+  font-size: 40px;
+  font-weight: 250;
+  margin-bottom: 40px;
+  margin-left: 60px;
+}
+
+.artist-location {
+  font-size: 20px;
+  font-weight: 250;
+  margin-bottom: 0px;
+  margin-left: 300px;
 }

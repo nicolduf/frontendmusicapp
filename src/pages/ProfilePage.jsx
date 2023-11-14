@@ -160,7 +160,7 @@ function ProfilePage() {
                       </div>
                     ))}
                 </div>
-                <p className="artists-font">{userDB.username}'s Artists:</p>
+                <p className="artists-font">{userDB.username}'s Artists</p>
                 <div className="favourites-artists-container">
                   {userDB.favouriteArtists &&
                     userDB.favouriteArtists.map((artist, index) => (

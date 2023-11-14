@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-import '../styles/ArtistDetails.css'
+import '../styles/ArtistDetails.css';
 
 function ArtistDetailsPage() {
   const { _id } = useParams();
@@ -52,13 +52,11 @@ function ArtistDetailsPage() {
 
   return (
     <div className="artist-details-container">
-      <div className="artist-image-container">
-        <img src={artist.image} alt={artist.name} className="artistImage" />
-      </div>
+      <img src={artist.image} alt={artist.name} className="artist-image" />
       <div className="artist-details">
-        <p className="artist-font">{artist.name}</p>
-        <p>{artist.realName}</p>
-        <p>{artist.location}</p>
+        <p className="artist">{artist.name}</p>
+        <p className="artist-realName">{artist.realName}</p>
+        <p className="artist-location">{artist.location}</p>
         <button className="artist-favourites-button" onClick={handleAddToFavorites}>Add to Favorites</button>
       </div>
     </div>
