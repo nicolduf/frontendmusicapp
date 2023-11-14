@@ -13,10 +13,14 @@ function ProfilePage() {
     location: "",
     username: "",
   });
+  const [imageFile, setImageFile] = useState(null);
 
   const { user } = useContext(AuthContext);
   const apiUrl = user
     ? `${import.meta.env.VITE_API_URL}/api/users/${user.userId}`
+    : null;
+  const profilePictureEndpoint = user
+    ? `${import.meta.env.VITE_API_URL}/api/users/${user.userId}/profile-picture`
     : null;
   const navigate = useNavigate();
 
@@ -49,28 +53,31 @@ function ProfilePage() {
     setEditing(true);
   };
 
-  const handleSave = (event) => {
+  const handleSave = async (event) => {
     event.preventDefault();
-    fetch(`${import.meta.env.VITE_API_URL}/api/users/${user.userId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(editedUser),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((updatedUserData) => {
-        setUserDB(updatedUserData);
-        setEditing(false);
-      })
-      .catch((error) => {
-        console.error("Error updating user data", error);
+
+    const formData = new FormData();
+    formData.append("image", imageFile);
+    formData.append("username", editedUser.username);
+    formData.append("location", editedUser.location);
+
+    try {
+      // Use the new profile picture update endpoint
+      await fetch(profilePictureEndpoint, {
+        method: "PUT",
+        body: formData,
       });
+
+      // Refresh the user data after updating the profile picture
+      const updatedUserData = await fetch(apiUrl).then((response) =>
+        response.json()
+      );
+
+      setUserDB(updatedUserData);
+      setEditing(false);
+    } catch (error) {
+      console.error("Error updating profile picture:", error);
+    }
   };
 
   const handleCancel = () => {
@@ -83,6 +90,11 @@ function ProfilePage() {
       ...editedUser,
       [name]: value,
     });
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImageFile(file);
   };
 
   if (!user) {
@@ -116,10 +128,9 @@ function ProfilePage() {
                 <br />
                 <label>Profile Picture</label>
                 <input
-                  type="text"
+                  type="file"
                   name="image"
-                  value={editedUser.image}
-                  onChange={handleChange}
+                  onChange={handleImageChange}
                   className="update-image"
                 />
                 <br />
@@ -187,4 +198,3 @@ function ProfilePage() {
 }
 
 export default ProfilePage;
-
