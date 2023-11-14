@@ -1,9 +1,18 @@
+.song-title {
+  font-size: 40px;
+  font-weight: 250;
+  margin: 5px;
+}
+
+.song-title:hover {
+  text-decoration: line-through;
+}
+
 .songs-grid-container {
   margin-top: 170px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center; /* Center the content horizontally */
 }
 
 .upload-release-text {
@@ -16,46 +25,3 @@
   gap: 10px;
   justify-content: space-evenly;
 }
-
-.all-songs {
-  /* Add any additional styling for each song container if needed */
-}
-
-.song-container {
-  position: relative;
-  width: 200px; /* Set the width of the square container */
-  height: 200px; /* Set the height of the square container */
-  overflow: hidden;
-}
-
-.song-link {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.song-image {
-  width: 100%;
-  height: auto;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.song-link:hover .song-image {
-  opacity: 1;
-}
-
-.song-title {
-  font-size: 16px; /* Adjust the font size as needed */
-  margin-top: 10px; /* Adjust the margin as needed */
-}
-
-/* Add any additional styles for the song title or other elements as needed */
