@@ -62,13 +62,11 @@ function ProfilePage() {
     formData.append("location", editedUser.location);
 
     try {
-      // Use the new profile picture update endpoint
       await fetch(profilePictureEndpoint, {
         method: "PUT",
         body: formData,
       });
 
-      // Refresh the user data after updating the profile picture
       const updatedUserData = await fetch(apiUrl).then((response) =>
         response.json()
       );
