@@ -14,47 +14,27 @@ function HomePage() {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/songs`);
 
       if (!response.ok) {
-        throw new Error(`Network response was not ok (Status: ${response.status})`);
+        throw new Error(
+          `Network response was not ok (Status: ${response.status})`
+        );
       }
 
       const songsData = await response.json();
-      
-      // Check if songsData has both songs and songOfTheDayTitle
-      if ('songs' in songsData && 'songOfTheDayTitle' in songsData) {
+
+      if ("songs" in songsData && "songOfTheDayTitle" in songsData) {
         setSongs(songsData.songs);
         setOriginalSongs(songsData.songs);
         setIsLoading(false);
-        setSongOfTheDayTitle(songsData.songOfTheDayTitle);
+        setSongOfTheDayTitle(songsData.songOfTheDayTitle); // Set Song of the Day title here
       } else {
-        console.error("Invalid response format: Missing songs or songOfTheDayTitle");
+        console.error(
+          "Invalid response format: Missing songs or songOfTheDayTitle"
+        );
         setIsLoading(false);
       }
     } catch (error) {
       console.error("There's been an error fetching songs", error);
       setIsLoading(false);
-    }
-  };
-
-  const fetchSongOfTheDayTitle = async () => {
-    try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/songs`);
-
-      if (!response.ok) {
-        throw new Error(`Network response was not ok (Status: ${response.status})`);
-      }
-
-      const data = await response.json();
-      console.log("Fetched Song of the Day Data:", data);
-
-      const { title } = data;
-      if (title) {
-        console.log("Fetched Song of the Day Title:", title);
-        setSongOfTheDayTitle(title);
-      } else {
-        console.error("Song of the Day title not found in the response");
-      }
-    } catch (error) {
-      console.error("Error fetching Song of the Day:", error);
     }
   };
 
@@ -76,14 +56,15 @@ function HomePage() {
     if (genre === "All") {
       setSongs(originalSongs);
     } else {
-      const filteredSongs = originalSongs.filter((song) => song.genre === genre);
+      const filteredSongs = originalSongs.filter(
+        (song) => song.genre === genre
+      );
       setSongs(filteredSongs);
     }
   };
 
   useEffect(() => {
     fetchAllSongs();
-    fetchSongOfTheDayTitle();
   }, []);
 
   useEffect(() => {
@@ -98,10 +79,27 @@ function HomePage() {
 
   return (
     <div>
+      {songOfTheDayTitle && (
+        <div key="song-of-the-day" className="song-of-the-day">
+          <p className="song-of-the-day-text">Song of the Day</p>
+          <div className="animated-text-container">
+            <p className="animated-text">{songOfTheDayTitle}</p>
+          </div>
+        </div>
+      )}
+
       <div className="centered-container">
-        <button className="new-releases" onClick={sortSongsByNewestRelease}>New Releases</button>
-        <button className="a-z" onClick={sortSongsAlphabetically}>A-Z</button>
-        <select className="genres" onChange={(e) => setSelectedGenre(e.target.value)} value={selectedGenre}>
+        <button className="new-releases" onClick={sortSongsByNewestRelease}>
+          New Releases
+        </button>
+        <button className="a-z" onClick={sortSongsAlphabetically}>
+          A-Z
+        </button>
+        <select
+          className="genres"
+          onChange={(e) => setSelectedGenre(e.target.value)}
+          value={selectedGenre}
+        >
           {allGenres.map((genre) => (
             <option key={genre} value={genre}>
               {genre}
@@ -109,14 +107,8 @@ function HomePage() {
           ))}
         </select>
       </div>
-      <div className="image-grid-container">
-        {songOfTheDayTitle && (
-          <div key="song-of-the-day" className="song-of-the-day">
-            <h2>Song of the Day</h2>
-            <p>{songOfTheDayTitle}</p>
-          </div>
-        )}
 
+      <div className="image-grid-container">
         {songs.map((song, index) => (
           <div key={index}>
             <Link to={`/songs/${song._id}`}>

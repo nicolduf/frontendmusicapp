@@ -25,7 +25,7 @@
   justify-content: center;
   align-items: center;
   height: 10vh;
-  margin-top: 170px; 
+  margin-top: 80px; 
 }
 
 .new-releases {
@@ -70,5 +70,51 @@
 
 .genres:focus {
   outline: 2px solid #000000;
+}
+
+.song-of-the-day {
+  display: flex;
+  margin-top: 150px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.song-of-the-day-text {
+  border: 2px solid limegreen;
+  width: 20%;
+  font-size: 25px;
+}
+
+.song-of-the-day-text,
+.animated-text-container {
+  border: 2px solid limegreen;
+  width: 20%;
+  text-align: center;
+  font-size: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  height: 80px;
+}
+
+.animated-text-container {
+  width: 78%;
+  overflow: hidden;
+}
+
+.animated-text {
+  animation: slide 100s ease infinite;
+  display: inline-block;
+  font-size: 25px;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-650%);
+  }
+  100% {
+    transform: translateX(650%);
+  }
 }
 

@@ -9,13 +9,16 @@ function SongsPage() {
   const fetchAllSongs = async () => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/songs`);
-
+  
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-
+  
       const songsData = await response.json();
-      setSongs(songsData);
+  
+      const { songs } = songsData;
+  
+      setSongs(songs);
       setIsLoading(false);
     } catch (error) {
       console.error("There's been an error fetching songs", error);
