@@ -18,9 +18,17 @@ function HomePage() {
       }
 
       const songsData = await response.json();
-      setSongs(songsData);
-      setOriginalSongs(songsData);
-      setIsLoading(false);
+      
+      // Check if songsData has both songs and songOfTheDayTitle
+      if ('songs' in songsData && 'songOfTheDayTitle' in songsData) {
+        setSongs(songsData.songs);
+        setOriginalSongs(songsData.songs);
+        setIsLoading(false);
+        setSongOfTheDayTitle(songsData.songOfTheDayTitle);
+      } else {
+        console.error("Invalid response format: Missing songs or songOfTheDayTitle");
+        setIsLoading(false);
+      }
     } catch (error) {
       console.error("There's been an error fetching songs", error);
       setIsLoading(false);
@@ -35,10 +43,18 @@ function HomePage() {
         throw new Error(`Network response was not ok (Status: ${response.status})`);
       }
 
-      const { title } = await response.json();
-      setSongOfTheDayTitle(title);
+      const data = await response.json();
+      console.log("Fetched Song of the Day Data:", data);
+
+      const { title } = data;
+      if (title) {
+        console.log("Fetched Song of the Day Title:", title);
+        setSongOfTheDayTitle(title);
+      } else {
+        console.error("Song of the Day title not found in the response");
+      }
     } catch (error) {
-      console.error("There's been an error fetching the song of the day title", error);
+      console.error("Error fetching Song of the Day:", error);
     }
   };
 
@@ -66,13 +82,13 @@ function HomePage() {
   };
 
   useEffect(() => {
-    filterSongsByGenre(selectedGenre);
-  }, [selectedGenre]);
-
-  useEffect(() => {
     fetchAllSongs();
     fetchSongOfTheDayTitle();
   }, []);
+
+  useEffect(() => {
+    filterSongsByGenre(selectedGenre);
+  }, [selectedGenre]);
 
   if (isLoading) {
     return <div>Loading...</div>;
