@@ -34,17 +34,26 @@
 
 .image-container {
   flex: 1;
-  margin-right: 20px;
-  margin-left: 50px;
+  position: relative;
 }
 
 .info-container {
   flex: 1;
+  position: fixed;
+  margin-top: 200px;
+  margin-left: 600px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 50px;
 }
 
 .songImage {
-  max-width: 100%;
-  max-height: 100%;
+  width: 1370px;
+  height: 1370px;
+  position: absolute;
 }
 
 .songTitle {

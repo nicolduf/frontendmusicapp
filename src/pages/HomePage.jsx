@@ -7,13 +7,14 @@ function HomePage() {
   const [originalSongs, setOriginalSongs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedGenre, setSelectedGenre] = useState("All");
+  const [songOfTheDayTitle, setSongOfTheDayTitle] = useState(null);
 
   const fetchAllSongs = async () => {
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/api/songs`);
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(`Network response was not ok (Status: ${response.status})`);
       }
 
       const songsData = await response.json();
@@ -23,6 +24,21 @@ function HomePage() {
     } catch (error) {
       console.error("There's been an error fetching songs", error);
       setIsLoading(false);
+    }
+  };
+
+  const fetchSongOfTheDayTitle = async () => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/songs`);
+
+      if (!response.ok) {
+        throw new Error(`Network response was not ok (Status: ${response.status})`);
+      }
+
+      const { title } = await response.json();
+      setSongOfTheDayTitle(title);
+    } catch (error) {
+      console.error("There's been an error fetching the song of the day title", error);
     }
   };
 
@@ -55,6 +71,7 @@ function HomePage() {
 
   useEffect(() => {
     fetchAllSongs();
+    fetchSongOfTheDayTitle();
   }, []);
 
   if (isLoading) {
@@ -77,12 +94,19 @@ function HomePage() {
         </select>
       </div>
       <div className="image-grid-container">
-        {songs.map((song) => (
-          <div key={song.id}>
+        {songOfTheDayTitle && (
+          <div key="song-of-the-day" className="song-of-the-day">
+            <h2>Song of the Day</h2>
+            <p>{songOfTheDayTitle}</p>
+          </div>
+        )}
+
+        {songs.map((song, index) => (
+          <div key={index}>
             <Link to={`/songs/${song._id}`}>
               <img src={song.image} alt={song.title} className="round-images" />
             </Link>
-            {/* <p className="songTitles">{song.artist} - {song.title}</p> */}
+            {/* Additional details if needed */}
           </div>
         ))}
       </div>
