@@ -79,42 +79,34 @@
   left: 0;
   width: 100%;
   justify-content: space-evenly;
+  margin-bottom: 120px;
 }
 
-.song-of-the-day-text {
-  border: 2px solid limegreen;
-  width: 20%;
-  font-size: 25px;
-}
-
-.song-of-the-day-text,
 .animated-text-container {
   border: 2px solid limegreen;
-  width: 20%;
   text-align: center;
-  font-size: 25px;
-  display: inline-block;
-  vertical-align: middle;
-  height: 80px;
-}
-
-.animated-text-container {
-  width: 78%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  position: fixed;
+  width: 95.5%;
   overflow: hidden;
 }
 
 .animated-text {
-  animation: slide 100s ease infinite;
+  animation: slide 70s ease infinite;
   display: inline-block;
-  font-size: 25px;
+  font-size: 15px;
+  font-weight: 200px;
 }
 
 @keyframes slide {
   0% {
-    transform: translateX(-650%);
+    transform: translateX(250%);
   }
   100% {
-    transform: translateX(650%);
+    transform: translateX(-250%);
   }
 }
 
