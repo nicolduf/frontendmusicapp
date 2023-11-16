@@ -30,27 +30,31 @@ function SongDetailsPage() {
     }
   }, [_id]);
 
-  const handleDelete = () => {
-    if (window.confirm("Are you sure you want to delete this song?")) {
-      fetch(apiUrl, {
+  const handleRemoveFromFavorites = () => {
+    const songId = song._id;
+    const userId = user.userId;
+
+    fetch(
+      `${
+        import.meta.env.VITE_API_URL
+      }/api/users/remove-from-favourites/${userId}/${songId}`,
+      {
         method: "DELETE",
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
       })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          navigate("/");
-        })
-        .catch((error) => {
-          console.error("Error deleting song", error);
-        });
-    }
+      .catch((error) => {
+        console.error("Error removing song from favorites", error);
+      });
   };
 
   const handleAddToFavorites = () => {
     const songId = song._id;
     const userId = user.userId;
-    console.log(user);
 
     fetch(
       `${
@@ -80,17 +84,23 @@ function SongDetailsPage() {
         <img src={song.image} alt={song.title} className="songImage" />
       </div>
       <div className="info-container">
-        <p className="songTitle">  
+        <p className="songTitle">
           {song.artist} - {song.title}
         </p>
         <p>{song.album}</p>
         <p>{song.genre}</p>
         <p>{song.label}</p>
         <p>{song.released}</p>
-        <button className="delete-button" onClick={handleDelete}>
-          Delete Song
+        <button
+          className="favourites-button"
+          onClick={handleRemoveFromFavorites}
+        >
+          Remove from Favorites
         </button>
-        <button className="favourites-button" onClick={handleAddToFavorites}>
+        <button
+          className="favourites-button"
+          onClick={handleAddToFavorites}
+        >
           Add to Favorites
         </button>
       </div>
