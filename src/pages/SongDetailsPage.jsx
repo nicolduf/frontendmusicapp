@@ -93,15 +93,15 @@ function SongDetailsPage() {
         <p>{song.released}</p>
         <button
           className="favourites-button"
-          onClick={handleRemoveFromFavorites}
-        >
-          Remove from Favorites
-        </button>
-        <button
-          className="favourites-button"
           onClick={handleAddToFavorites}
         >
           Add to Favorites
+        </button>
+        <button
+          className="remove-button"
+          onClick={handleRemoveFromFavorites}
+        >
+          Remove from Favorites
         </button>
       </div>
     </div>

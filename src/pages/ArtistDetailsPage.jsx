@@ -52,13 +52,13 @@ function ArtistDetailsPage() {
 
   return (
     <div className="artist-details-container">
-      <img src={artist.image} alt={artist.name} className="artist-image" />
       <div className="artist-details">
         <p className="artist">{artist.name}</p>
         <p className="artist-realName">{artist.realName}</p>
         <p className="artist-location">{artist.location}</p>
         <button className="artist-favourites-button" onClick={handleAddToFavorites}>Add to Favorites</button>
-      </div>
+        </div>
+        <img src={artist.image} alt={artist.name} className="artist-image" />
     </div>
   );
 }

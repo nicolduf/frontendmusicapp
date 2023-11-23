@@ -8,8 +8,19 @@
 
 .artist-image {
   width: 99%;
-  margin-bottom: 0;
+  margin: 0 auto;
   display: block;
+}
+
+.artist-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.artist-image-container .artist-image {
+  width: 100%;
 }
 
 .artist-favourites-button {
@@ -23,14 +34,14 @@
     cursor: pointer;
     margin-top: 100px;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .artist {
   font-size: 500%;
   margin-bottom: 40px;
-  margin-right: 10px;
+  margin-right: 1px;
   text-align: right;
-
 }
 
 .artist-realName {
