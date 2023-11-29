@@ -36,9 +36,10 @@ function ArtistsPage() {
   return (
     <div className="artist-grid-container">
       {artists.map((artist) => (
-        <div key={artist.id} className="all-artists">
+        <div key={artist.id} className="artist-container">
           <Link to={`/artists/${artist._id}`}>
-            <h2 className="artist-name">{artist.name} </h2>
+            <h2 className="artist-name">{artist.name}</h2>
+            <img src={artist.image} alt={`${artist.name} Image`} className="all-artist-image" />
           </Link>
         </div>
       ))}

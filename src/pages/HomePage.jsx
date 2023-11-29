@@ -25,7 +25,7 @@ function HomePage() {
         setSongs(songsData.songs);
         setOriginalSongs(songsData.songs);
         setIsLoading(false);
-        setSongOfTheDayTitle(songsData.songOfTheDayTitle); // Set Song of the Day title here
+        setSongOfTheDayTitle(songsData.songOfTheDayTitle);
       } else {
         console.error(
           "Invalid response format: Missing songs or songOfTheDayTitle"
@@ -80,22 +80,20 @@ function HomePage() {
   return (
     <div>
       {songOfTheDayTitle && (
-        <div key="song-of-the-day" className="song-of-the-day">
-          <div className="animated-text-container">
-            <p className="animated-text">
-              Song of the Day:{" "}
-              <Link
-                to={`/songs/${
-                  songs.find((song) => song.title === songOfTheDayTitle)._id
-                }`}
-                className="link-text"
-              >
-                {songOfTheDayTitle}
-              </Link>
-            </p>
-          </div>
-        </div>
-      )}
+  <div key="song-of-the-day" className="song-of-the-day">
+    <div className="animated-text-container">
+      <p className="animated-text">
+        Song of the Day:{" "}
+        <Link
+          to={`/songs/${songs.find((song) => song.title === songOfTheDayTitle)._id}`}
+          className="link-text"
+        >
+          {`${songs.find((song) => song.title === songOfTheDayTitle).artist} - ${songOfTheDayTitle}`}
+        </Link>
+      </p>
+    </div>
+  </div>
+)}
 
       <div className="centered-container">
         <button className="new-releases" onClick={sortSongsByNewestRelease}>

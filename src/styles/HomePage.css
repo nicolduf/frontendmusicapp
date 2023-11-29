@@ -17,6 +17,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 3%;
+  margin-bottom: 70px;
 }
 
 .centered-container {
@@ -88,9 +89,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 48px;
   position: fixed;
-  width: 95.5%;
+  width: 94%;
   overflow: hidden;
 }
 
@@ -99,6 +100,10 @@
   display: inline-block;
   font-size: 15px;
   font-weight: 200px;
+}
+
+.link-text {
+  font-size: 45px;
 }
 
 @keyframes slide {

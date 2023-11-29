@@ -10,6 +10,7 @@ import ArtistsPage from "./pages/ArtistsPage";
 import HomePage from "./pages/HomePage";
 import SongsPage from "./pages/SongsPage";
 import UploadSong from "./pages/UploadSong";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         />
         <Route path="*" element={<h1>404 Page</h1>} />
       </Routes>
+      <Footer />
     </>
   );
 }

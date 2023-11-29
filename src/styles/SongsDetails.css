@@ -1,76 +1,48 @@
-.delete-button {
-  font-family: "Helvetica", sans-serif;
-  font-size: 100%;
-  text-align: center;
-  width: 150px;
-  height: 30px;
-  border-radius: 20px;
-  background-color: white;
-  cursor: pointer;
-  margin-left: 20px;
-  margin-top: 40px;
-}
-
-.favourites-button {
-  font-family: "Helvetica", sans-serif;
-  font-size: 100%;
-  text-align: center;
-  width: 150px;
-  height: 30px;
-  border-radius: 20px;
-  background-color: white;
-  cursor: pointer;
-  margin-left: 20px;
-  margin-top: 40px;
-}
-
-.remove-button {
-  font-family: "Helvetica", sans-serif;
-  font-size: 100%;
-  text-align: center;
-  width: 200px;
-  height: 30px;
-  border-radius: 20px;
-  background-color: white;
-  cursor: pointer;
-  margin-left: 20px;
-  margin-top: 40px;
-}
-
 .song-details-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
   margin-top: 170px;
 }
 
 .image-container {
-  flex: 1;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 130px;
+  margin-bottom: 150px;
 }
 
 .info-container {
   flex: 1;
-  position: fixed;
-  margin-top: 200px;
-  margin-left: 600px;
-  top: 0;
-  left: 0;
-  z-index: 1;
+  max-width: 600px;
   background-color: white;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 50px;
+  padding: 20px;
 }
 
 .songImage {
-  width: 1370px;
-  height: 1370px;
-  position: absolute;
+  width: 99%;
+  margin: 0 auto;
+  display: block;
 }
 
 .songTitle {
-  font-size: 50px;
-  font-weight: 250;
-  margin-bottom: 60px;
+  font-size: 350%;
+  margin-bottom: 20px;
+}
+
+.favourites-button,
+.remove-button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: white;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.remove-button {
+  margin-left: 20px;
+  width: 200px;
 }

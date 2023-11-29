@@ -8,6 +8,19 @@
   text-decoration: line-through;
 }
 
+.all-artist-image {
+  display: none;
+  height: 30vh;
+}
+
+.artist-container:hover .all-artist-image {
+  display: block;
+}
+
+.artist-container {
+  position: relative;
+}
+
 .artist-grid-container {
   margin-top: 170px;
   display: flex;

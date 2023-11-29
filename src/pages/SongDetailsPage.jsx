@@ -80,9 +80,6 @@ function SongDetailsPage() {
 
   return (
     <div className="song-details-container">
-      <div className="image-container">
-        <img src={song.image} alt={song.title} className="songImage" />
-      </div>
       <div className="info-container">
         <p className="songTitle">
           {song.artist} - {song.title}
@@ -91,21 +88,20 @@ function SongDetailsPage() {
         <p>{song.genre}</p>
         <p>{song.label}</p>
         <p>{song.released}</p>
-        <button
-          className="favourites-button"
-          onClick={handleAddToFavorites}
-        >
-          Add to Favorites
-        </button>
-        <button
-          className="remove-button"
-          onClick={handleRemoveFromFavorites}
-        >
-          Remove from Favorites
-        </button>
+        <div>
+          <button className="favourites-button" onClick={handleAddToFavorites}>
+            Add to Favorites
+          </button>
+          <button className="remove-button" onClick={handleRemoveFromFavorites}>
+            Remove from Favorites
+          </button>
+        </div>
+      </div>
+      <div className="image-container">
+        <img src={song.image} alt={song.title} className="songImage" />
       </div>
     </div>
   );
 }
 
-export default SongDetailsPage;
+  export default SongDetailsPage;
