@@ -33,8 +33,9 @@
   border-radius: 20px;
   background-color: white;
   cursor: pointer;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  margin-top: 70px;
+  margin-left: 7px;
+  margin-bottom: 40px;
 }
 
 .artist-remove-button {
@@ -43,7 +44,7 @@
 }
 
 .artist {
-  font-size: 500%;
+  font-size: 600%;
   margin-bottom: 40px;
   margin-right: 1px;
   text-align: right;

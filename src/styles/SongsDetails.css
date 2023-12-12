@@ -7,13 +7,12 @@
   justify-content: center;
   align-items: center;
   height: 60%;
-  margin-top: 30px;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
 }
 
 .info-container {
   flex: 1;
-  max-width: 600px;
+  max-width: 100%;
   background-color: white;
 }
 
@@ -24,8 +23,17 @@
 }
 
 .songTitle {
-  font-size: 350%;
-  margin-bottom: 20px;
+  font-size: 600%;
+  margin-bottom: 0.1%;
+  margin-right: 1px;
+  text-align: right;
+}
+
+.songArtist {
+  font-size: 200%;
+  margin-bottom: 40px;
+  margin-right: 1px;
+  text-align: right;
 }
 
 .favourites-button,
@@ -38,10 +46,22 @@
   border-radius: 20px;
   background-color: white;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 70px;
+  margin-left: 7px;
+  margin-bottom: 40px;
 }
 
 .remove-button {
   margin-left: 20px;
   width: 200px;
+}
+
+.songAlbum {
+  font-size: 150%;
+  margin-left: 270px;
+}
+
+.songGenre {
+  font-size: 110%;
+  margin-left: 270px;
 }

@@ -81,13 +81,10 @@ function SongDetailsPage() {
   return (
     <div className="song-details-container">
       <div className="info-container">
-        <p className="songTitle">
-          {song.artist} - {song.title}
-        </p>
-        <p>{song.album}</p>
-        <p>{song.genre}</p>
-        <p>{song.label}</p>
-        <p>{song.released}</p>
+        <p className="songTitle">{song.title}</p>
+        <p className="songArtist">{song.artist}</p>
+        <p className="songAlbum">{song.album}</p>
+        <p className="songGenre">{song.genre}, {song.released}</p>
         <div>
           <button className="favourites-button" onClick={handleAddToFavorites}>
             Add to Favorites
